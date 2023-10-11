@@ -1,59 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IEEE Task</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <title>Dynamic Table</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 p-6">
-    <div class="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-md">
-        <table id="myTable" class="w-full border-collapse border border-gray-300">
-            <thead>
-                <tr>
-                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300">Column 1</th>
-                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300">Column 2</th>
-                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300">Column 3</th>
-                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300">Column 4</th>
-                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300">Column 5</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Table data goes here -->
-            </tbody>
-        </table>
+<body class="p-4">
+  <h1 class="text-2xl font-bold mb-4">Dynamic Table</h1>
 
-        <button id="addColumnButton" class="mt-4 py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300">Add Column</button>
-        <div id="columnNames" class="mt-4 font-semibold text-gray-700"></div>
-    </div>
+  <table class="table-auto">
+    <thead>
+      <tr>
+        <th class="px-4 py-2">Column 1</th>
+        <th class="px-4 py-2">Column 2</th>
+        <th class="px-4 py-2">Column 3</th>
+        <th class="px-4 py-2">Column 4</th>
+        <th class="px-4 py-2">Column 5</th>
+      </tr>
+    </thead>
+   <tbody>
+      <!-- Your table data goes here -->
+      <tr>
+        <td class="px-4 py-2">Row 1, Column 1 Data</td>
+        <td class="px-4 py-2">Row 1, Column 2 Data</td>
+        <td class="px-4 py-2">Row 1, Column 3 Data</td>
+        <td class="px-4 py-2">Row 1, Column 4 Data</td>
+        <td class="px-4 py-2">Row 1, Column 5 Data</td>
+      </tr>
+      <tr>
+        <td class="px-4 py-2">Row 2, Column 1 Data</td>
+        <td class="px-4 py-2">Row 2, Column 2 Data</td>
+        <td class="px-4 py-2">Row 2, Column 3 Data</td>
+        <td class="px-4 py-2">Row 2, Column 4 Data</td>
+        <td class="px-4 py-2">Row 2, Column 5 Data</td>
+      </tr>
+    </tbody>
+  </table>
 
-    <script>
-        function displayColumnNames() {
-            const table = document.getElementById('myTable');
-            const headers = table.querySelectorAll('th');
-            const columnNames = Array.from(headers).map(header => header.textContent);
-            document.getElementById('columnNames').textContent = columnNames.join(', ');
-        }
+  <button class="bg-blue-500 text-white px-4 py-2 mt-4" id="addColumn">Add Column</button>
 
-        document.addEventListener('DOMContentLoaded', displayColumnNames);
+  <div class="mt-4" id="columnNames">
+    <!-- Column names will be displayed here -->
+  </div>
 
-        const addColumnButton = document.getElementById('addColumnButton');
-        addColumnButton.addEventListener('click', () => {
-            const table = document.getElementById('myTable');
-            const headerRow = table.querySelector('thead tr');
-            const newRow = table.querySelector('tbody tr');
+  <script>
+    const addColumnButton = document.getElementById("addColumn");
+    const columnNamesContainer = document.getElementById("columnNames");
+    let columnCount = 5;
 
-            const columnNumber = headerRow.children.length + 1;
-            const newHeader = document.createElement('th');
-            newHeader.textContent = 'Column ' + columnNumber;
-            headerRow.appendChild(newHeader);
+    addColumnButton.addEventListener("click", () => {
+      const newColumnName = `Column ${columnCount + 1}`;
+      columnCount++;
 
-            const newCell = document.createElement('td');
-            newCell.textContent = ''; // You can set the initial data here.
-            newRow.appendChild(newCell);
+      // Add a new column to the table header
+      const headerRow = document.querySelector("thead tr");
+      const newColumnHeader = document.createElement("th");
+      newColumnHeader.classList.add("px-4", "py-2");
+      newColumnHeader.textContent = newColumnName;
+      headerRow.appendChild(newColumnHeader);
 
-            displayColumnNames();
-        });
-    </script>
+      // Display the updated column names
+      displayColumnNames();
+    });
+
+    // Function to display column names
+    function displayColumnNames() {
+      const headerRow = document.querySelector("thead tr");
+      const columnNames = Array.from(headerRow.getElementsByTagName("th")).map(th => th.textContent);
+      columnNamesContainer.innerHTML = "Column Names: " + columnNames.join(", ");
+    }
+
+    // Initial display of column names
+    displayColumnNames();
+  </script>
 </body>
 </html>
