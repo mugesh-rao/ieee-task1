@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-     <script src="https://cdn.tailwindcss.com"></script>
     <title>IEEE Task</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 p-6">
     <div class="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-md">
-        <table class="w-full border-collapse border border-gray-300">
+        <table id="myTable" class="w-full border-collapse border border-gray-300">
             <thead>
                 <tr>
                     <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300">Column 1</th>
@@ -29,33 +28,32 @@
     </div>
 
     <script>
+        function displayColumnNames() {
+            const table = document.getElementById('myTable');
+            const headers = table.querySelectorAll('th');
+            const columnNames = Array.from(headers).map(header => header.textContent);
+            document.getElementById('columnNames').textContent = columnNames.join(', ');
+        }
 
-function displayColumnNames() {
+        document.addEventListener('DOMContentLoaded', displayColumnNames);
 
-  const table = document.getElementById('myTable');
-  const headers = table.querySelectorAll('th');
+        const addColumnButton = document.getElementById('addColumnButton');
+        addColumnButton.addEventListener('click', () => {
+            const table = document.getElementById('myTable');
+            const headerRow = table.querySelector('thead tr');
+            const newRow = table.querySelector('tbody tr');
 
-  const columnNames = Array.from(headers).map(header => header.textContent);
-  
+            const columnNumber = headerRow.children.length + 1;
+            const newHeader = document.createElement('th');
+            newHeader.textContent = 'Column ' + columnNumber;
+            headerRow.appendChild(newHeader);
 
-  document.getElementById('columnNames').textContent = columnNames.join(', ');
-}
+            const newCell = document.createElement('td');
+            newCell.textContent = ''; // You can set the initial data here.
+            newRow.appendChild(newCell);
 
-document.addEventListener('DOMContentLoaded', displayColumnNames);
-
-const addColumnButton = document.getElementById('addColumnButton');
-addColumnButton.addEventListener('click', () => {
-  const table = document.getElementById('myTable');
-  const newRow = table.querySelector('tr');
-
-  const newColumn = document.createElement('th');
-  const columnNumber = newRow.children.length + 1;
-  newColumn.textContent = 'Column ' + columnNumber;
-  newRow.appendChild(newColumn);
-
-  displayColumnNames();
-});
-
+            displayColumnNames();
+        });
     </script>
 </body>
 </html>
