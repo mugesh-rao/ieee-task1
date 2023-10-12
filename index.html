@@ -8,7 +8,10 @@
 </head>
 <body class="bg-gray-100 p-6">
     <div class="w-full mx-auto bg-white p-6 rounded-lg shadow-md">
-      <h1 class="text-center font-bold text-black text-2xl my-4">IEEE TASK 1</h1>
+        <h1 class="text-center font-bold text-black text-2xl my-4">IEEE TASK 1</h1>
+
+        <input id="newColumnText" type="text" class="p-2 border border-gray-300" placeholder="Enter text for the new column">
+
         <table id="myTable" class="w-full border-collapse border border-gray-300">
             <thead>
                 <tr>
@@ -20,18 +23,19 @@
                 </tr>
             </thead>
             <tbody>
-             <tr>
-        <td class="px-4 py-2">Data 1</td>
-        <td class="px-4 py-2">Data 2</td>
-        <td class="px-4 py-2">Data 3</td>
-        <td class="px-4 py-2">Data 4</td>
-        <td class="px-4 py-2">Data 5</td>
-      </tr>
+                <tr>
+                    <td class="px-4 py-2">Data 1</td>
+                    <td class="px-4 py-2">Data 2</td>
+                    <td class="px-4 py-2">Data 3</td>
+                    <td class="px-4 py-2">Data 4</td>
+                    <td class="px-4 py-2">Data 5</td>
+                </tr>
             </tbody>
         </table>
 
         <button id="addColumnButton" class="mt-4 py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300">Add Column</button>
         <div id="columnNames" class="mt-4 font-semibold text-gray-700"></div>
+        <ul id="columnList" class="mt-4 font-semibold text-gray-700"></ul>
     </div>
 
     <script>
@@ -40,6 +44,15 @@
             const headers = table.querySelectorAll('th');
             const columnNames = Array.from(headers).map(header => header.textContent);
             document.getElementById('columnNames').textContent = columnNames.join(', ');
+
+            const columnList = document.getElementById('columnList');
+            columnList.innerHTML = ''; // Clear the previous list
+
+            columnNames.forEach(columnName => {
+                const listItem = document.createElement('li');
+                listItem.textContent = columnName;
+                columnList.appendChild(listItem);
+            });
         }
 
         document.addEventListener('DOMContentLoaded', displayColumnNames);
@@ -60,6 +73,17 @@
             newRow.appendChild(newCell);
 
             displayColumnNames();
+        });
+
+        const textInput = document.getElementById('newColumnText');
+        textInput.addEventListener('input', () => {
+            const table = document.getElementById('myTable');
+            const newRow = table.querySelector('tbody tr');
+
+            const columnNumber = table.querySelector('thead tr').children.length;
+            const cell = newRow.children[columnNumber - 1];
+
+            cell.textContent = textInput.value;
         });
     </script>
 </body>
