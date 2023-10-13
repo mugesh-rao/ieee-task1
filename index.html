@@ -5,19 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IEEE Task</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body class="bg-gray-100 p-6">
     <div class="w-full mx-auto bg-white p-6 rounded-lg shadow-md">
         <h1 class="text-center font-bold text-black text-2xl my-4">IEEE TASK 1</h1>
-
-        <input id="newColumnText" type="text" class="p-2 border border-gray-300 my-3 bg-gray-200" placeholder="Enter text for the new column">
-
         <table id="myTable" class="w-full border-collapse border border-gray-300">
             <thead>
                 <tr>
-                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300">Column 1</th>
-                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300">Column 2</th>
-                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300">Column 3</th>
+                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300">S.no</th>
+                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300">Name</th>
+                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300">Email</th>
                     <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300">Column 4</th>
                     <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300">Column 5</th>
                 </tr>
@@ -32,59 +34,47 @@
                 </tr>
             </tbody>
         </table>
-
-        <button id="addColumnButton" class="mt-4 py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300">Add Column</button>
         <ul id="columnList" class="mt-4 font-semibold text-gray-700"></ul>
-    <div id="columnNames" class="mt-4 font-semibold text-gray-700"></div>
+        <div id="columnNames" class="mt-4 font-semibold text-gray-700"></div>
     </div>
 
     <script>
+        // Define an array of columns to hide initially _ Rao 1
+        const columnsToHide = ['Name', 'Column 4'];
+
         function displayColumnNames() {
             const table = document.getElementById('myTable');
             const headers = table.querySelectorAll('th');
             const columnNames = Array.from(headers).map(header => header.textContent);
-            document.getElementById('columnNames').textContent = columnNames.join(', ');
-
             const columnList = document.getElementById('columnList');
-            columnList.innerHTML = ''; // Clear the previous list
+            columnList.innerHTML = '';
 
             columnNames.forEach(columnName => {
                 const listItem = document.createElement('li');
-                listItem.textContent = columnName;
+                const label = document.createElement('label');
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.checked = !columnsToHide.includes(columnName); // Check if the column should be initially hidden
+                label.appendChild(checkbox);
+                label.appendChild(document.createTextNode(columnName));
+                listItem.appendChild(label);
                 columnList.appendChild(listItem);
+
+                // Handle checkbox change
+                checkbox.addEventListener('change', function () {
+                    const columnIndex = columnNames.indexOf(columnName) + 1;
+                    const cells = table.querySelectorAll(`tr td:nth-child(${columnIndex}), tr th:nth-child(${columnIndex})`);
+                    cells.forEach(cell => {
+                        if (checkbox.checked) {
+                            cell.classList.remove('hidden');
+                        } else {
+                            cell.classList.add('hidden');
+                        }
+                    });
+                });
             });
         }
-
         document.addEventListener('DOMContentLoaded', displayColumnNames);
-
-        const addColumnButton = document.getElementById('addColumnButton');
-        addColumnButton.addEventListener('click', () => {
-            const table = document.getElementById('myTable');
-            const headerRow = table.querySelector('thead tr');
-            const newRow = table.querySelector('tbody tr');
-
-            const columnNumber = headerRow.children.length + 1;
-            const newHeader = document.createElement('th');
-            newHeader.textContent = 'Column ' + columnNumber;
-            headerRow.appendChild(newHeader);
-
-            const newCell = document.createElement('td');
-            newCell.textContent = 'Data ' + columnNumber;
-            newRow.appendChild(newCell);
-
-            displayColumnNames();
-        });
-
-        const textInput = document.getElementById('newColumnText');
-        textInput.addEventListener('input', () => {
-            const table = document.getElementById('myTable');
-            const newRow = table.querySelector('tbody tr');
-
-            const columnNumber = table.querySelector('thead tr').children.length;
-            const cell = newRow.children[columnNumber - 1];
-
-            cell.textContent = textInput.value;
-        });
     </script>
 </body>
 </html>
