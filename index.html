@@ -39,42 +39,52 @@
     </div>
 
     <script>
-        // Define an array of columns to hide initially _ Rao 1
         const columnsToHide = ['Name', 'Column 4'];
 
-        function displayColumnNames() {
+        function hideColumns() {
             const table = document.getElementById('myTable');
             const headers = table.querySelectorAll('th');
-            const columnNames = Array.from(headers).map(header => header.textContent);
             const columnList = document.getElementById('columnList');
-            columnList.innerHTML = '';
-
-            columnNames.forEach(columnName => {
+            
+            headers.forEach(header => {
+                if (columnsToHide.includes(header.textContent)) {
+                    const columnIndex = Array.from(header.parentNode.children).indexOf(header);
+                    header.classList.add('hidden');
+                    table.querySelectorAll(`tr td:nth-child(${columnIndex + 1}`).forEach(td => {
+                        td.classList.add('hidden');
+                    });
+                }
+                
+                // Create a list item with a checkbox for each column
                 const listItem = document.createElement('li');
                 const label = document.createElement('label');
                 const checkbox = document.createElement('input');
                 checkbox.type = 'checkbox';
-                checkbox.checked = !columnsToHide.includes(columnName); // Check if the column should be initially hidden
+                checkbox.checked = !header.classList.contains('hidden');
                 label.appendChild(checkbox);
-                label.appendChild(document.createTextNode(columnName));
+                label.appendChild(document.createTextNode(header.textContent));
                 listItem.appendChild(label);
                 columnList.appendChild(listItem);
-
-                // Handle checkbox change
+                
+                // Handle checkbox change to show/hide the column
                 checkbox.addEventListener('change', function () {
-                    const columnIndex = columnNames.indexOf(columnName) + 1;
-                    const cells = table.querySelectorAll(`tr td:nth-child(${columnIndex}), tr th:nth-child(${columnIndex})`);
-                    cells.forEach(cell => {
-                        if (checkbox.checked) {
-                            cell.classList.remove('hidden');
-                        } else {
-                            cell.classList.add('hidden');
-                        }
-                    });
+                    const columnIndex = Array.from(header.parentNode.children).indexOf(header);
+                    if (checkbox.checked) {
+                        header.classList.remove('hidden');
+                        table.querySelectorAll(`tr td:nth-child(${columnIndex + 1}`).forEach(td => {
+                            td.classList.remove('hidden');
+                        });
+                    } else {
+                        header.classList.add('hidden');
+                        table.querySelectorAll(`tr td:nth-child(${columnIndex + 1}`).forEach(td => {
+                            td.classList.add('hidden');
+                        });
+                    }
                 });
             });
         }
-        document.addEventListener('DOMContentLoaded', displayColumnNames);
+
+        document.addEventListener('DOMContentLoaded', hideColumns);
     </script>
 </body>
 </html>
