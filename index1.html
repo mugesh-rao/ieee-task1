@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEEE Task</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 p-6">
+    <div class="w-full mx-auto bg-white p-6 rounded-lg shadow-md">
+        <h1 class="text-center font-bold text-black text-2xl my-4">IEEE TASK 1</h1>
+            <input type="text" id="searchInput" class="w-full px-3 py-2 border border-gray-800 rounded-md mb-4 bg-gray-300"
+            placeholder="Search">
+            <button id="downloadCSV" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 my-4 rounded-xl ">
+                Download CSV
+            </button>
+      
+        <table id="myTable" class="w-full border-collapse border border-gray-300">
+            <thead>
+                <tr>
+                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300 col-Sno">S.no</th>
+                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300 col-Name">Name</th>
+                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300 col-Email">Email</th>
+                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300 col-City">City</th>
+                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300 col-MobileNo">Mobile No</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 col-Sno">Participant 1</td>
+                    <td class="px-4 py-2 col-Name">MugeshRao</td>
+                    <td class="px-4 py-2 col-Email">mugeshrao2@email.com</td>
+                    <td class="px-4 py-2 col-City">City A</td>
+                    <td class="px-4 py-2 col-MobileNo">12345</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 col-Sno">Participant 2</td>
+                    <td class="px-4 py-2 col-Name">Raj kumar</td>
+                    <td class="px-4 py-2 col-Email">raj@email.com</td>
+                    <td class="px-4 py-2 col-City">City B</td>
+                    <td class="px-4 py-2 col-MobileNo">67890</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 col-Sno">Participant 3</td>
+                    <td class="px-4 py-2 col-Name">Ram Kumar</td>
+                    <td class="px-4 py-2 col-Email">ram@email.com</td>
+                    <td class="px-4 py-2 col-City">City C</td>
+                    <td class="px-4 py-2 col-MobileNo">54321</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 col-Sno">Participant 4</td>
+                    <td class="px-4 py-2 col-Name">Kumar ji</td>
+                    <td class="px-4 py-2 col-Email">kumarji@email.com</td>
+                    <td class="px-4 py-2 col-City">City D</td>
+                    <td class="px-4 py-2 col-MobileNo">98765</td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2 col-Sno">Participant 5</td>
+                    <td class="px-4 py-2 col-Name">Ravana Rao</td>
+                    <td class="px-4 py-2 col-Email">ravana@email.com</td>
+                    <td class="px-4 py-2 col-City">City E</td>
+                    <td class="px-4 py-2 col-MobileNo">13579</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <ul id="columnList" class="mt-4 font-semibold text-gray-700"></ul>
+        <div id="columnNames" class="mt-4 font-semibold text-gray-700"></div>
+        <div id="pagination" class="m-4 font-bold text-black ">
+            
+        </div>
+    </div>
+    </div>
+
+    <script>
+        const columnsToHide = ['col-Name', 'col-City'];
+        const itemsPerPage = 4;
+
+        function hideColumns() {
+            const table = document.getElementById('myTable');
+            const headers = table.querySelectorAll('th');
+            const columnList = document.getElementById('columnList');
+
+            headers.forEach(header => {
+                const columnClass = header.classList[header.classList.length - 1]; // Get the last class
+                if (columnsToHide.includes(columnClass)) {
+                    const columnIndex = Array.from(header.parentNode.children).indexOf(header);
+                    header.classList.add('hidden');
+                    table.querySelectorAll(`tr td:nth-child(${columnIndex + 1}`).forEach(td => {
+                        td.classList.add('hidden');
+                    });
+                }
+
+                // Create a list item with a checkbox for each column
+                const listItem = document.createElement('li');
+                const label = document.createElement('label');
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.checked = !header.classList.contains('hidden');
+                label.appendChild(checkbox);
+                label.appendChild(document.createTextNode(header.textContent));
+                listItem.appendChild(label);
+                columnList.appendChild(listItem);
+
+                // Handle checkbox change to show/hide the column
+                checkbox.addEventListener('change', function () {
+                    const columnIndex = Array.from(header.parentNode.children).indexOf(header);
+                    if (checkbox.checked) {
+                        header.classList.remove('hidden');
+                        table.querySelectorAll(`tr td:nth-child(${columnIndex + 1}`).forEach(td => {
+                            td.classList.remove('hidden');
+                        });
+                    } else {
+                        header.classList.add('hidden');
+                        table.querySelectorAll(`tr td:nth-child(${columnIndex + 1}`).forEach(td => {
+                            td.classList.add('hidden');
+                        });
+                    }
+                });
+            });
+
+        }
+
+        // task 2 - export csv 
+        function exportTableToCSV() {
+    const table = document.getElementById('myTable');
+    const rows = Array.from(table.querySelectorAll('tr'));
+    const csvContent = [];
+
+    for (const row of rows) {
+        const cells = row.querySelectorAll('td, th');
+        const rowArray = Array.from(cells).map(cell => {
+            const cellValue = cell.textContent;
+            if (cellValue.includes(',')) {
+                return `"${cellValue}"`;
+            } else {
+                return cellValue;
+            }
+        });
+        csvContent.push(rowArray.join(','));
+    }
+
+    const csvData = 'data:text/csv;charset=utf-8,' + csvContent.join('\n');
+    const encodedUri = encodeURI(csvData);
+    const link = document.createElement('a');
+    link.setAttribute('href', encodedUri);
+    link.setAttribute('download', 'tableDatas.csv');
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+       
+        // Task 3 - pagination 
+
+        function paginateTable(data) {
+            const table = document.getElementById('myTable');
+            const tbody = table.querySelector('tbody');
+            const pagination = document.getElementById('pagination');
+            const pageCount = Math.ceil(data.length / itemsPerPage);
+
+            function displayTable(page) {
+                tbody.innerHTML = '';
+                for (let i = page * itemsPerPage; i < (page + 1) * itemsPerPage && i < data.length; i++) {
+                    tbody.appendChild(data[i]);
+                }
+            }
+
+            function createPaginationButtons() {
+                pagination.innerHTML = '';
+                for (let i = 0; i < pageCount; i++) {
+                    const button = document.createElement('button');
+                    button.innerText = i + 1;
+                    button.addEventListener('click', () => displayTable(i));
+                    pagination.appendChild(button);
+                }
+            }
+
+            displayTable(0);
+            createPaginationButtons();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            hideColumns();
+            const dataRows = Array.from(document.querySelectorAll('#myTable tbody tr'));
+            const searchInput = document.getElementById('searchInput');
+            const downloadCSVButton = document.getElementById('downloadCSV');
+            searchInput.addEventListener('input', () => {
+                const searchText = searchInput.value.trim().toLowerCase();
+                const filteredData = dataRows.filter(row => {
+                    const rowText = Array.from(row.querySelectorAll('td')).map(td => td.textContent.toLowerCase()).join('');
+                    return rowText.includes(searchText);
+                });
+
+                paginateTable(filteredData);
+            });
+            downloadCSVButton.addEventListener('click', exportTableToCSV);
+            paginateTable(dataRows);
+        });
+    </script>
+</body>
+
+</html>

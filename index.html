@@ -17,44 +17,46 @@
         <table id="myTable" class="w-full border-collapse border border-gray-300">
             <thead>
                 <tr>
-                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300">S.no</th>
-                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300">Name</th>
-                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300">Email</th>
-                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300">Column 4</th>
-                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300">Column 5</th>
+                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300 col-Sno">S.no</th>
+                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300 col-Name">Name</th>
+                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300 col-Email">Email</th>
+                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300 col-Column4">Column 4</th>
+                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300 col-Column5">Column 5</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td class="px-4 py-2">Data 1</td>
-                    <td class="px-4 py-2">Data 2</td>
-                    <td class="px-4 py-2">Data 3</td>
-                    <td class="px-4 py-2">Data 4</td>
-                    <td class="px-4 py-2">Data 5</td>
+                    <td class="px-4 py-2 col-Sno">Data 1</td>
+                    <td class="px-4 py-2 col-Name">Data 2</td>
+                    <td class="px-4 py-2 col-Email">Data 3</td>
+                    <td class="px-4 py-2 col-Column4">Data 4</td>
+                    <td class="px-4 py-2 col-Column5">Data 5</td>
                 </tr>
             </tbody>
         </table>
+                                                                
         <ul id="columnList" class="mt-4 font-semibold text-gray-700"></ul>
         <div id="columnNames" class="mt-4 font-semibold text-gray-700"></div>
     </div>
 
     <script>
-        const columnsToHide = ['Name', 'Column 4'];
+        const columnsToHide = ['col-Name', 'col-Column4'];
 
         function hideColumns() {
             const table = document.getElementById('myTable');
             const headers = table.querySelectorAll('th');
             const columnList = document.getElementById('columnList');
-            
+
             headers.forEach(header => {
-                if (columnsToHide.includes(header.textContent)) {
+                const columnClass = header.classList[header.classList.length - 1]; // Get the last class
+                if (columnsToHide.includes(columnClass)) {
                     const columnIndex = Array.from(header.parentNode.children).indexOf(header);
                     header.classList.add('hidden');
                     table.querySelectorAll(`tr td:nth-child(${columnIndex + 1}`).forEach(td => {
                         td.classList.add('hidden');
                     });
                 }
-                
+
                 // Create a list item with a checkbox for each column
                 const listItem = document.createElement('li');
                 const label = document.createElement('label');
@@ -65,7 +67,7 @@
                 label.appendChild(document.createTextNode(header.textContent));
                 listItem.appendChild(label);
                 columnList.appendChild(listItem);
-                
+
                 // Handle checkbox change to show/hide the column
                 checkbox.addEventListener('change', function () {
                     const columnIndex = Array.from(header.parentNode.children).indexOf(header);
