@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEEE Task</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-6">
+    <div class="w-full mx-auto bg-white p-6 rounded-lg shadow-md">
+        <h1 class="text-center font-bold text-black text-2xl my-4">IEEE TASK 1</h1>
+        <table id="myTable" class="w-full border-collapse border border-gray-300">
+            <thead>
+                <tr>
+                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300 col-Sno">S.no</th>
+                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300 col-Name">Name</th>
+                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300 col-Email">Email</th>
+                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300 col-Column4">Column 4</th>
+                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300 col-Column5">Column 5</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 col-Sno">Data 1</td>
+                    <td class="px-4 py-2 col-Name">Data 2</td>
+                    <td class="px-4 py-2 col-Email">Data 3</td>
+                    <td class="px-4 py-2 col-Column4">Data 4</td>
+                    <td class="px-4 py-2 col-Column5">Data 5</td>
+                </tr>
+            </tbody>
+        </table>
+                                                                
+        <ul id="columnList" class="mt-4 font-semibold text-gray-700"></ul>
+        <div id="columnNames" class="mt-4 font-semibold text-gray-700"></div>
+    </div>
+
+    <script>
+        const columnsToHide = ['col-Name', 'col-Column4'];
+
+        function hideColumns() {
+            const table = document.getElementById('myTable');
+            const headers = table.querySelectorAll('th');
+            const columnList = document.getElementById('columnList');
+
+            headers.forEach(header => {
+                const columnClass = header.classList[header.classList.length - 1]; // Get the last class
+                if (columnsToHide.includes(columnClass)) {
+                    const columnIndex = Array.from(header.parentNode.children).indexOf(header);
+                    header.classList.add('hidden');
+                    table.querySelectorAll(`tr td:nth-child(${columnIndex + 1}`).forEach(td => {
+                        td.classList.add('hidden');
+                    });
+                }
+
+                // Create a list item with a checkbox for each column
+                const listItem = document.createElement('li');
+                const label = document.createElement('label');
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.checked = !header.classList.contains('hidden');
+                label.appendChild(checkbox);
+                label.appendChild(document.createTextNode(header.textContent));
+                listItem.appendChild(label);
+                columnList.appendChild(listItem);
+
+                // Handle checkbox change to show/hide the column
+                checkbox.addEventListener('change', function () {
+                    const columnIndex = Array.from(header.parentNode.children).indexOf(header);
+                    if (checkbox.checked) {
+                        header.classList.remove('hidden');
+                        table.querySelectorAll(`tr td:nth-child(${columnIndex + 1}`).forEach(td => {
+                            td.classList.remove('hidden');
+                        });
+                    } else {
+                        header.classList.add('hidden');
+                        table.querySelectorAll(`tr td:nth-child(${columnIndex + 1}`).forEach(td => {
+                            td.classList.add('hidden');
+                        });
+                    }
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', hideColumns);
+    </script>
+</body>
+</html>
