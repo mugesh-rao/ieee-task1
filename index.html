@@ -49,214 +49,197 @@
                 </div>
             </div>
         </div>
-        <div class="bg-gray-100  p-4 rounded-lg border border-gray-300">
-            <!-- ACCOUNT INFORMATION -->
+        <div class="bg-gray-100 p-4 rounded-lg border border-gray-300">
+            <!-- TEAM LEADER -->
             <div class="-mx-3 md:flex mb-6">
                 <div class="md:w-1/3 px-3 mb-6 md:mb-0">
-                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
-                        for="team-name">
-                        Team Name
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="team-leader-name">
+                        Name
                     </label>
-                    <input
-                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
-                        id="team-name" type="text" placeholder="Team Name">
+                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="team-leader-name" type="text" placeholder="Name" required>
                 </div>
-
+        
                 <div class="md:w-1/3 px-3">
-                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="country">
-                        Country
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="team-leader-email">
+                        Mail
                     </label>
-                    <input
-                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
-                        id="country" type="text" placeholder="Country">
+                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="team-leader-email" type="email" placeholder="Mail" required>
                 </div>
-
+        
                 <div class="md:w-1/3 px-3">
-                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
-                        for="ieee-section">
-                        IEEE Section
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="otp">
+                        OTP
                     </label>
-                    <input
-                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
-                        id="ieee-section" type="text" placeholder="IEEE Section">
+                    <div class=" flex flex-row ">
+                        <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="otp" type="text" placeholder="OTP" required>
+                        <button class="bg-blue-500 text-white py-3 px-4 rounded ml-2">Get</button>
+                    </div>
                 </div>
             </div>
+        
+            <!-- PASSWORD -->
             <div class="-mx-3 md:flex mb-6">
                 <div class="md:w-1/3 px-3 mb-6 md:mb-0">
-                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
-                        for="team-leader-name">
-                        Team Leader Name
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="password">
+                        Password
                     </label>
-                    <input
-                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
-                        id="team-leader-name" type="text" placeholder="Team Leader Name">
+                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="password" type="password" placeholder="Password" required>
                 </div>
-
+        
                 <div class="md:w-1/3 px-3">
-                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="age">
-                        Age as on September 2023
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="repeat-password">
+                        Repeat Password
                     </label>
-                    <input
-                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
-                        id="age" type="text" placeholder="Age as on September 2023">
+                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="repeat-password" type="password" placeholder="Repeat Password" required>
                 </div>
-
+        
                 <div class="md:w-1/3 px-3">
-                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="class">
-                        Current pursuing Year / Class
-                    </label>
-                    <input
-                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
-                        id="class" type="text" placeholder="Current pursuing Year / Class">
-                </div>
-            </div>
-            <div class="-mx-3 md:flex mb-6">
-                <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
-                        for="ieee-membership">
-                        IEEE Membership No (Team Leader)
-                    </label>
-                    <input
-                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
-                        id="ieee-membership" type="text" placeholder="IEEE Membership No (Team Leader)">
-                </div>
-                <div class="md:w-1/2 px-3 mb-6 md:mb-0">
                     <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="phone">
                         Phone
                     </label>
-                    <input
-                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
-                        id="phone" type="tel" placeholder="Phone">
+                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="phone" type="tel" placeholder="Phone" required>
                 </div>
-                <div class="md:w-1/2 px-3">
-                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="gender">
+            </div>
+        
+            <!-- OTHER DETAILS -->
+            <div class="-mx-3 md:flex mb-6">
+                <div class="md:w-1/3 px-3 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="country">
+                        Country
+                    </label>
+                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="country" type="text" placeholder="Country" required>
+                </div>
+        
+                <div class="md:w-1/3 px-3">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="ieee-section">
+                        IEEE Section (Optional)
+                    </label>
+                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="ieee-section" type="text" placeholder="IEEE Section">
+                </div>
+        
+                <div class="md:w-1/3 px-3">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="team-leader-age">
+                        Team Leader Age as on September 2024
+                    </label>
+                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="team-leader-age" type="text" placeholder="Age as on September 2024" required>
+                </div>
+            </div>
+            <div class="-mx-3 md:flex mb-6">
+                <div class="md:w-1/3 px-3 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="country">
+                        Current Pursuing Year / Class (Optional)
+                    </label>
+                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="country" type="text" placeholder="  Current Pursuing Year / Class (Optional)" required>
+                </div>
+        
+                <div class="md:w-1/3 px-3">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="ieee-section">
                         Gender
                     </label>
-                    <div class="relative">
-                        <select
-                            class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded"
-                            id="gender">
-                            <option>Male</option>
-                            <option>Female</option>
-                        </select>
-
-                    </div>
+                    <select class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded" id="gender" required>
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                </div>
+        
+                <div class="md:w-1/3 px-3">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="team-leader-age">
+                        Organization Name
+                    </label>
+                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="team-leader-age" type="text" placeholder="  Organization Name" required>
                 </div>
             </div>
-
-            <div class="-mx-3 md:flex mb-6">
-
-
-                <div class="md:w-1/2 px-3">
-                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
-                        for="university">
-                        University/College/School Name
-                    </label>
-                    <input
-                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
-                        id="university" type="text" placeholder="University/College/School Name">
-                </div>
-                <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
-                        for="contact-preference">
-                        Contact Preference
-                    </label>
-                    <div class="relative">
-                        <select
-                            class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded"
-                            id="contact-preference">
-                            <option>Email</option>
-                            <option>Phone</option>
-                        </select>
-
-                    </div>
-                </div>
-                <div class="md:w-1/2 px-3">
-                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
-                        for="referral-code">
-                        Volunteer Referral Code
-                    </label>
-                    <input
-                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
-                        id="referral-code" type="text" placeholder="Volunteer Referral Code">
-                </div>
-            </div>
-
-
-
+          
+        
         </div>
+        
 
 
         <div class="p-4 rounded-lg border border-gray-300 w-full mx-auto bg-gray-100">
             <h2 class="text-xl font-semibold text-gray-700 mb-4">Team Member (Min 0 / Max 3)</h2>
-            <button class="py-0.5 px-2 mt-2 bg-green-500 text-white text-2xl border border-green-500 rounded" id="add-member-button">+</button>
+            <button class="flex items-center gap-2 py-1 mb-4 px-2 bg-blue-500 text-white text-2xl border border-green-500 rounded" id="add-member-button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                </svg>
+               
+            </button>
+            
 
             <div id="team-members">
-                <!-- Team Member 1 -->
-                <div class="md:flex mb-6">
-                    <div class="md:w-1/6 px-3 mb-6 md:mb-0">
-                        <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
-                            for="team-member-1-name">
-                            Member 1 Name <span class="text-red-600">*</span>
-                        </label>
-                        <input
-                            class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
-                            id="team-member-1-name" type="text" placeholder="Name" required>
-                    </div>
-    
-                    <div class="md:w-1/6 px-3 mb-6 md:mb-0">
-                        <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
-                            for="team-member-1-mail">
-                            Mail <span class="text-red-600">*</span>
-                        </label>
-                        <input
-                            class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
-                            id="team-member-1-mail" type="email" placeholder="Email" required>
-                    </div>
-    
-                    <div class="md-w-1/6 px-3 mb-6 md-3 mb-0">
-                        <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
-                            for="team-member-1-phone">
-                            Phone <span class="text-red-600">*</span>
-                        </label>
-                        <input
-                            class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
-                            id="team-member-1-phone" type="tel" placeholder="Phone" required>
-                    </div>
-    
-                    <div class="md-w-1/6 px-3 mb-6 md-3 mb-0">
-                        <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
-                            for="team-member-1-gender">
-                            Gender <span class="text-red-600">*</span>
-                        </label>
-                        <select
-                            class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
-                            id="team-member-1-gender" required>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                        </select>
-                    </div>
-    
-                    <div class="md-w-1/6 px-3 mb-6 md-3 mb-0">
-                        <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
-                            for="team-member-1-age">
-                            Age <span class="text-red-600">*</span>
-                        </label>
-                        <input
-                            class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
-                            id="team-member-1-age" type="number" placeholder="Age" required>
-                    </div>
-    
-                    <div class="md-w-1/6 px-3 mb-6 md-3 mb-0">
-                        <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
-                            for="team-member-1-organization">
-                            Organization Name <span class="text-red-600">*</span>
-                        </label>
-                        <input
-                            class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
-                            id="team-member-1-organization" type="text" placeholder="Organization Name" required>
-                    </div>
+                <div class="container p-3 bg-gray-200 border border-gray-400 rounded-xl mb-3">
+                    <span class="text-xl my-3 font-bold text-center">Team Member 1</span>
+                <div class="-mx-3 md:flex mb-6">
+                <div class="md:w-1/3 px-3 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
+                    for="team-member-1-name">
+                    Name <span class="text-red-600">*</span>
+                </label>
+                <input
+                    class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
+                    id="team-member-1-name" type="text" placeholder="Name" required>
                 </div>
+        
+                <div class="md:w-1/3 px-3">
+                    <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
+                    for="team-member-${memberCount + 1}-mail">
+                    Mail <span class="text-red-600">*</span>
+                </label>
+                <input
+                    class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
+                    id="team-member-${memberCount + 1}-mail" type="email" placeholder="Email" required>
+                </div>
+        
+                <div class="md:w-1/3 px-3">
+                    <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
+                    for="team-member-${memberCount + 1}-phone">
+                    Phone <span class="text-red-600">*</span>
+                </label>
+                <input
+                    class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
+                    id="team-member-${memberCount + 1}-phone" type="tel" placeholder="Phone" required>
+                </div>
+            </div>
+
+
+            <div class="-mx-3 md:flex mb-6">
+                <div class="md:w-1/3 px-3 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
+                    for="team-member-${memberCount + 1}-gender">
+                    Gender <span class="text-red-600">*</span>
+                </label>
+                <select
+                    class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
+                    id="team-member-${memberCount + 1}-gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                </div>
+        
+                <div class="md:w-1/3 px-3">
+                    <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
+                    for="team-member-${memberCount + 1}-age">
+                    Age <span class="text-red-600">*</span>
+                </label>
+                <input
+                    class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
+                    id="team-member-${memberCount + 1}-age" type="number" placeholder="Age" required>
+                </div>
+        
+                <div class="md:w-1/3 px-3">
+                    <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
+                    for="team-member-${memberCount + 1}-organization">
+                    Organization Name <span class="text-red-600">*</span>
+                </label>
+                <input
+                    class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
+                    id="team-member-${memberCount + 1}-organization" type="text" placeholder="Organization Name" required>
+                </div>
+            </div>
+        
+
+</div>
+</div>
+             
             </div>
         </div>
     
@@ -312,9 +295,11 @@
                     <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2" for="theme">
                         Theme <span class="text-red-600">*</span>
                     </label>
-                    <input
-                        class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
-                        id="theme" type="text" placeholder="Theme" required>
+                    <select class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4" id="theme" required>
+                        <option value="Junior Einstein">Junior Einstein</option>
+                        <option value="Make Fair">Make Fair</option>
+                        <option value="Special Track">Special Track</option>
+                    </select>
                 </div>
             </div>
 
@@ -326,6 +311,53 @@
             class="bg-blue-500 py-4 w-full rounded-lg text-lg text-white font-semibold hover:bg-blue-700">Register</button>
     </div>
     <script>
+const teamLeaderAgeInput = document.getElementById('team-leader-age');
+const themeSelect = document.getElementById('theme');
+const teamMemberAgeInputs = document.querySelectorAll('input[id^="team-member-"]');
+
+teamLeaderAgeInput.addEventListener('input', function() {
+    const leaderAge = parseInt(teamLeaderAgeInput.value);
+
+    if (leaderAge <= 17) {
+        themeSelect.innerHTML = ''; // Remove all existing options
+        const juniorEinsteinOption = document.createElement('option');
+        juniorEinsteinOption.value = 'Junior Einstein';
+        juniorEinsteinOption.text = 'Junior Einstein';
+        themeSelect.appendChild(juniorEinsteinOption);
+        teamLeaderAgeInput.setAttribute('min', '0');
+        teamLeaderAgeInput.setAttribute('max', '17');
+    } else {
+        themeSelect.innerHTML = ''; // Remove all existing options
+        const makeFairOption = document.createElement('option');
+        makeFairOption.value = 'Make Fair';
+        makeFairOption.text = 'Make Fair';
+        themeSelect.appendChild(makeFairOption);
+
+        const specialTrackOption = document.createElement('option');
+        specialTrackOption.value = 'Special Track';
+        specialTrackOption.text = 'Special Track';
+        themeSelect.appendChild(specialTrackOption);
+        teamLeaderAgeInput.setAttribute('min', '18');
+        teamLeaderAgeInput.setAttribute('max', '60');
+    }
+
+    teamMemberAgeInputs.forEach(function(memberAgeInput) {
+        const memberId = memberAgeInput.id.split('-')[2]; // Extract the member number
+        const memberAge = parseInt(memberAgeInput.value);
+
+        if (leaderAge <= 17) {
+            if (memberAge > 17) {
+                memberAgeInput.value = ''; // Clear the age if it's greater than 17
+            }
+            memberAgeInput.setAttribute('max', '17');
+        } else {
+            if (memberAge < 18) {
+                memberAgeInput.value = ''; // Clear the age if it's less than 18
+            }
+            memberAgeInput.setAttribute('min', '18');
+        }
+    });
+});
         // JavaScript to add more team members
         document.getElementById("add-member-button").addEventListener("click", function () {
             const teamMembers = document.getElementById("team-members");
@@ -334,66 +366,81 @@
                 const newMember = document.createElement("div");
                 newMember.classList.add("md-flex", "mb-6");
                 newMember.innerHTML = `
-                <div class="flex flex-row">
-                    <div class="md-w-1/6 px-3 mb-6 md-3 mb-0">
-                        <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
-                            for="team-member-${memberCount + 1}-name">
-                            Member ${memberCount + 1} Name <span class="text-red-600">*</span>
-                        </label>
-                        <input
-                            class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
-                            id="team-member-${memberCount + 1}-name" type="text" placeholder="Name" required>
-                    </div>
-                    <div class="md-w-1/6 px-3 mb-6 md-3 mb-0">
-                        <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
-                            for="team-member-${memberCount + 1}-mail">
-                            Mail <span class="text-red-600">*</span>
-                        </label>
-                        <input
-                            class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
-                            id="team-member-${memberCount + 1}-mail" type="email" placeholder="Email" required>
-                    </div>
-                    <div class="md-w-1/6 px-3 mb-6 md-3 mb-0">
-                        <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
-                            for="team-member-${memberCount + 1}-phone">
-                            Phone <span class="text-red-600">*</span>
-                        </label>
-                        <input
-                            class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
-                            id="team-member-${memberCount + 1}-phone" type="tel" placeholder="Phone" required>
-                    </div>
-                    <div class="md-w-1/6 px-3 mb-6 md-3 mb-0">
-                        <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
-                            for="team-member-${memberCount + 1}-gender">
-                            Gender <span class="text-red-600">*</span>
-                        </label>
-                        <select
-                            class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
-                            id="team-member-${memberCount + 1}-gender" required>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                        </select>
-                    </div>
-                    <div class="md-w-1/6 px-3 mb-6 md-3 mb-0">
-                        <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
-                            for="team-member-${memberCount + 1}-age">
-                            Age <span class="text-red-600">*</span>
-                        </label>
-                        <input
-                            class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
-                            id="team-member-${memberCount + 1}-age" type="number" placeholder="Age" required>
-                    </div>
-                    <div class="md-w-1/6 px-3 mb-6 md-3 mb-0">
-                        <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
-                            for="team-member-${memberCount + 1}-organization">
-                            Organization Name <span class="text-red-600">*</span>
-                        </label>
-                        <input
-                            class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
-                            id="team-member-${memberCount + 1}-organization" type="text"
-                            placeholder="Organization Name" required>
-                    </div>
+                <div class="container p-3 bg-gray-200 border border-gray-400 rounded-xl">
+                    <span class="text-xl my-3 font-bold text-center">Team Member ${memberCount + 1} </span>
+                <div class="-mx-3 md:flex mb-6">
+                <div class="md:w-1/3 px-3 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
+                    for="team-member-${memberCount + 1}-name">
+                    Name <span class="text-red-600">*</span>
+                </label>
+                <input
+                    class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
+                    id="team-member-${memberCount + 1}-name" type="text" placeholder="Name" required>
                 </div>
+        
+                <div class="md:w-1/3 px-3">
+                    <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
+                    for="team-member-${memberCount + 1}-mail">
+                    Mail <span class="text-red-600">*</span>
+                </label>
+                <input
+                    class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
+                    id="team-member-${memberCount + 1}-mail" type="email" placeholder="Email" required>
+                </div>
+        
+                <div class="md:w-1/3 px-3">
+                    <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
+                    for="team-member-${memberCount + 1}-phone">
+                    Phone <span class="text-red-600">*</span>
+                </label>
+                <input
+                    class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
+                    id="team-member-${memberCount + 1}-phone" type="tel" placeholder="Phone" required>
+                </div>
+            </div>
+
+
+            <div class="-mx-3 md:flex mb-6">
+                <div class="md:w-1/3 px-3 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
+                    for="team-member-${memberCount + 1}-gender">
+                    Gender <span class="text-red-600">*</span>
+                </label>
+                <select
+                    class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
+                    id="team-member-${memberCount + 1}-gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                </div>
+        
+                <div class="md:w-1/3 px-3">
+                    <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
+                    for="team-member-${memberCount + 1}-age">
+                    Age <span class="text-red-600">*</span>
+                </label>
+                <input
+                    class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
+                    id="team-member-${memberCount + 1}-age" type="number" placeholder="Age" required>
+                </div>
+        
+                <div class="md:w-1/3 px-3">
+                    <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
+                    for="team-member-${memberCount + 1}-organization">
+                    Organization Name <span class="text-red-600">*</span>
+                </label>
+                <input
+                    class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
+                    id="team-member-${memberCount + 1}-organization" type="text" placeholder="Organization Name" required>
+                </div>
+            </div>
+        
+
+</div>
+</div>
+
+
                 `;
                 teamMembers.appendChild(newMember);
             }

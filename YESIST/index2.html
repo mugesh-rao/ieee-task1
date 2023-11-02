@@ -12,81 +12,73 @@
     </style>
 </head>
 <body class="bg-gray-100 p-6">
-    <div class="w-full mx-auto bg-white p-6 rounded-lg shadow-md">
-        <h1 class="text-center font-bold text-black text-2xl my-4">IEEE TASK 1</h1>
-        <table id="myTable" class="w-full border-collapse border border-gray-300">
-            <thead>
-                <tr>
-                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300 col-Sno">S.no</th>
-                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300 col-Name">Name</th>
-                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300 col-Email">Email</th>
-                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300 col-Column4">Column 4</th>
-                    <th class="py-2 px-4 bg-gray-200 font-bold border border-gray-300 col-Column5">Column 5</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="px-4 py-2 col-Sno">Data 1</td>
-                    <td class="px-4 py-2 col-Name">Data 2</td>
-                    <td class="px-4 py-2 col-Email">Data 3</td>
-                    <td class="px-4 py-2 col-Column4">Data 4</td>
-                    <td class="px-4 py-2 col-Column5">Data 5</td>
-                </tr>
-            </tbody>
-        </table>
-                                                                
-        <ul id="columnList" class="mt-4 font-semibold text-gray-700"></ul>
-        <div id="columnNames" class="mt-4 font-semibold text-gray-700"></div>
-    </div>
-
-    <script>
-        const columnsToHide = ['col-Name', 'col-Column4'];
-
-        function hideColumns() {
-            const table = document.getElementById('myTable');
-            const headers = table.querySelectorAll('th');
-            const columnList = document.getElementById('columnList');
-
-            headers.forEach(header => {
-                const columnClass = header.classList[header.classList.length - 1]; // Get the last class
-                if (columnsToHide.includes(columnClass)) {
-                    const columnIndex = Array.from(header.parentNode.children).indexOf(header);
-                    header.classList.add('hidden');
-                    table.querySelectorAll(`tr td:nth-child(${columnIndex + 1}`).forEach(td => {
-                        td.classList.add('hidden');
-                    });
-                }
-
-                // Create a list item with a checkbox for each column
-                const listItem = document.createElement('li');
-                const label = document.createElement('label');
-                const checkbox = document.createElement('input');
-                checkbox.type = 'checkbox';
-                checkbox.checked = !header.classList.contains('hidden');
-                label.appendChild(checkbox);
-                label.appendChild(document.createTextNode(header.textContent));
-                listItem.appendChild(label);
-                columnList.appendChild(listItem);
-
-                // Handle checkbox change to show/hide the column
-                checkbox.addEventListener('change', function () {
-                    const columnIndex = Array.from(header.parentNode.children).indexOf(header);
-                    if (checkbox.checked) {
-                        header.classList.remove('hidden');
-                        table.querySelectorAll(`tr td:nth-child(${columnIndex + 1}`).forEach(td => {
-                            td.classList.remove('hidden');
-                        });
-                    } else {
-                        header.classList.add('hidden');
-                        table.querySelectorAll(`tr td:nth-child(${columnIndex + 1}`).forEach(td => {
-                            td.classList.add('hidden');
-                        });
-                    }
-                });
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', hideColumns);
-    </script>
+    <div class="flex flex-col w-full">
+        <div class="flex flex-row w-full flex-grow">
+          <div class="md-w-1/4 px-3 mb-6 md-3 mb-0">
+            <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
+              for="team-member-${memberCount + 1}-name">
+              Member ${memberCount + 1} Name <span class="text-red-600">*</span>
+            </label>
+            <input
+              class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
+              id="team-member-${memberCount + 1}-name" type="text" placeholder="Name" required>
+          </div>
+      
+          <div class="md-w-1/4 px-3 mb-6 md-3 mb-0">
+            <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
+              for="team-member-${memberCount + 1}-mail">
+              Mail <span class="text-red-600">*</span>
+            </label>
+            <input
+              class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
+              id="team-member-${memberCount + 1}-mail" type="email" placeholder="Email" required>
+          </div>
+      
+          <div class="md-w-1/4 px-3 mb-6 md-3 mb-0">
+            <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
+              for="team-member-${memberCount + 1}-phone">
+              Phone <span class="text-red-600">*</span>
+            </label>
+            <input
+              class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
+              id="team-member-${memberCount + 1}-phone" type="tel" placeholder="Phone" required>
+          </div>
+        </div>
+      
+        <div class="flex flex-row">
+          <div class="md-w-1/4 px-3 mb-6 md-3 mb-0">
+            <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
+              for="team-member-${memberCount + 1}-gender">
+              Gender <span class="text-red-600">*</span>
+            </label>
+            <select
+              class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
+              id="team-member-${memberCount + 1}-gender" required>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+      
+          <div class="md-w-1/4 px-3 mb-6 md-3 mb-0">
+            <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
+              for="team-member-${memberCount + 1}-age">
+              Age <span class="text-red-600">*</span>
+            </label>
+            <input
+              class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
+              id="team-member-${memberCount + 1}-age" type="number" placeholder="Age" required>
+          </div>
+      
+          <div class="md-w-1/4 px-3 mb-6 md-3 mb-0">
+            <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
+              for="team-member-${memberCount + 1}-organization">
+              Organization Name <span class="text-red-600">*</span>
+            </label>
+            <input
+              class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
+              id="team-member-${memberCount + 1}-organization" type="text" placeholder="Organization Name" required>
+          </div>
+        </div>
+      </div>
 </body>
 </html>
