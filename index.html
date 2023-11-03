@@ -14,7 +14,7 @@
 
         <!-- LOGIN INFORMATION -->
         <div class="bg-gray-100  p-4 rounded-lg border border-gray-300">
-            <div class="-mx-3 md:flex mb-6 ">
+            <div class="-mx-3 md:flex mb-3 ">
                 <div class="md:w-1/3 px-3 mb-6 md:mb-0">
                     <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
                         for="login-email">
@@ -23,7 +23,7 @@
                     <input
                         class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
                         id="login-email" type="email" placeholder="ekth21133.ec@rmkec.ac.in">
-                    <p class="text-red text-xs italic">Please enter a valid email address.</p>
+                    <!-- <p class="text-red text-xs italic">Please enter a valid email address.</p> -->
                 </div>
 
                 <div class="md:w-1/3 px-3">
@@ -34,7 +34,7 @@
                     <input
                         class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
                         id="login-password" type="password" placeholder="•••••••">
-                    <p class="text-red text-xs italic">Please enter a password.</p>
+                    <!-- <p class="text-red text-xs italic">Please enter a password.</p> -->
                 </div>
 
                 <div class="md:w-1/3 px-3">
@@ -45,7 +45,7 @@
                     <input
                         class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
                         id="repeat-password" type="password" placeholder="Repeat Password">
-                    <p class="text-red text-xs italic">Please repeat your password.</p>
+                    <!-- <p class="text-red text-xs italic">Please repeat your password.</p> -->
                 </div>
             </div>
         </div>
@@ -63,13 +63,12 @@
                 </div>
 
                 <div class="md:w-1/3 px-3">
-                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
-                        for="team-leader-email">
-                        Mail
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="phone">
+                        Phone
                     </label>
                     <input
                         class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
-                        id="team-leader-email" type="email" placeholder="Mail" required>
+                        id="phone" type="tel" placeholder="Phone" required>
                 </div>
 
                 <div class="md:w-1/3 px-3">
@@ -82,37 +81,6 @@
                             id="otp" type="text" placeholder="OTP" required>
                         <button class="bg-blue-500 text-white py-3 px-4 rounded ml-2">Get</button>
                     </div>
-                </div>
-            </div>
-
-            <!-- PASSWORD -->
-            <div class="-mx-3 md:flex mb-6">
-                <div class="md:w-1/3 px-3 mb-6 md:mb-0">
-                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="password">
-                        Password
-                    </label>
-                    <input
-                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
-                        id="password" type="password" placeholder="Password" required>
-                </div>
-
-                <div class="md:w-1/3 px-3">
-                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
-                        for="repeat-password">
-                        Repeat Password
-                    </label>
-                    <input
-                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
-                        id="repeat-password" type="password" placeholder="Repeat Password" required>
-                </div>
-
-                <div class="md:w-1/3 px-3">
-                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="phone">
-                        Phone
-                    </label>
-                    <input
-                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
-                        id="phone" type="tel" placeholder="Phone" required>
                 </div>
             </div>
 
@@ -142,10 +110,16 @@
                         for="team-leader-age">
                         Team Leader Age as on September 2024
                     </label>
-                    <input
+                    <select
                         class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
-                        id="team-leader-age" type="text" placeholder="Age as on September 2024" required>
+                        id="team-leader-age" required>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                    </select>
                 </div>
+
             </div>
             <div class="-mx-3 md:flex mb-6">
                 <div class="md:w-1/3 px-3 mb-6 md:mb-0">
@@ -187,93 +161,24 @@
 
 
         <div class="p-4 rounded-lg border border-gray-300 w-full mx-auto bg-gray-100">
-            <h2 class="text-xl font-semibold text-gray-700 mb-4">Team Member (Min 0 / Max 3)</h2>
-            <button
-                class="flex items-center gap-2 py-1 mb-4 px-2 bg-blue-500 text-white text-2xl border border-green-500 rounded"
-                id="add-member-button">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                    class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                </svg>
+            <div class="flex flex-row gap-6">
 
-            </button>
+                <h2 class="text-xl font-semibold text-gray-700 mb-4">Team Member (Min 0 / Max 3)</h2>
+                <button
+                    class="flex items-center gap-2 py-1 mb-4 px-2 bg-blue-500 text-white text-2xl border border-green-500 rounded"
+                    id="add-member-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                        class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                    </svg>
+
+                </button>
+            </div>
 
 
             <div id="team-members">
-                <div class="container p-3 bg-gray-200 border border-gray-400 rounded-xl mb-3">
-                    <span class="text-xl my-3 font-bold text-center">Team Member 1</span>
-                    <div class="-mx-3 md:flex mb-6">
-                        <div class="md:w-1/3 px-3 mb-6 md:mb-0">
-                            <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
-                                for="team-member-1-name">
-                                Name <span class="text-red-600">*</span>
-                            </label>
-                            <input
-                                class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
-                                id="team-member-1-name" type="text" placeholder="Name" required>
-                        </div>
 
-                        <div class="md:w-1/3 px-3">
-                            <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
-                                for="team-member-${memberCount + 1}-mail">
-                                Mail <span class="text-red-600">*</span>
-                            </label>
-                            <input
-                                class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
-                                id="team-member-${memberCount + 1}-mail" type="email" placeholder="Email" required>
-                        </div>
-
-                        <div class="md:w-1/3 px-3">
-                            <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
-                                for="team-member-${memberCount + 1}-phone">
-                                Phone <span class="text-red-600">*</span>
-                            </label>
-                            <input
-                                class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
-                                id="team-member-${memberCount + 1}-phone" type="tel" placeholder="Phone" required>
-                        </div>
-                    </div>
-
-
-                    <div class="-mx-3 md:flex mb-6">
-                        <div class="md:w-1/3 px-3 mb-6 md:mb-0">
-                            <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
-                                for="team-member-${memberCount + 1}-gender">
-                                Gender <span class="text-red-600">*</span>
-                            </label>
-                            <select
-                                class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
-                                id="team-member-${memberCount + 1}-gender" required>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                            </select>
-                        </div>
-
-                        <div class="md:w-1/3 px-3">
-                            <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
-                                for="team-member-${memberCount + 1}-age">
-                                Age <span class="text-red-600">*</span>
-                            </label>
-                            <input
-                                class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
-                                id="team-member-${memberCount + 1}-age" type="number" placeholder="Age" required>
-                        </div>
-
-                        <div class="md:w-1/3 px-3">
-                            <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
-                                for="team-member-${memberCount + 1}-organization">
-                                Organization Name <span class="text-red-600">*</span>
-                            </label>
-                            <input
-                                class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
-                                id="team-member-${memberCount + 1}-organization" type="text"
-                                placeholder="Organization Name" required>
-                        </div>
-                    </div>
-
-
-                </div>
             </div>
 
         </div>
@@ -317,6 +222,7 @@
                         class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
                         id="abstract-file" type="file" required>
                 </div>
+
                 <div class="md:w-1/2 px-3">
                     <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
                         for="volunteer-referral-code">
@@ -351,6 +257,9 @@
         class="mt-4 bg-blue-500 py-4 w-full rounded-lg text-lg text-white font-semibold hover:bg-blue-700">Register</button>
     </div>
     <script>
+
+
+
         const teamLeaderAgeInput = document.getElementById('team-leader-age');
         const themeSelect = document.getElementById('theme');
         const teamMemberAgeInputs = document.querySelectorAll('input[id^="team-member-"]');
@@ -478,14 +387,21 @@
                 </div>
         
                 <div class="md:w-1/3 px-3">
-                    <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
-                    for="team-member-${memberCount + 1}-age">
-                    Age <span class="text-red-600">*</span>
-                </label>
-                <input
-                    class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
-                    id="team-member-${memberCount + 1}-age" type="number" placeholder="Age" required>
-                </div>
+    <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
+        for="team-member-${memberCount + 1}-age">
+        Age <span class="text-red-600">*</span>
+    </label>
+    <select
+        class="appearance-none block w-full bg-white text-gray-800 border border-gray-400 rounded py-3 px-4"
+        id="team-member-${memberCount + 1}-age" required>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <!-- Add more age options as needed -->
+    </select>
+</div>
+
         
                 <div class="md:w-1/3 px-3">
                     <label class="block uppercase tracking-wide text-gray-600 text-xs font-semibold mb-2"
@@ -507,7 +423,6 @@
                 teamMembers.appendChild(newMember);
             }
         });
-
         function deleteMember(button) {
             const teamMember = button.closest('.container');
             teamMember.remove();
